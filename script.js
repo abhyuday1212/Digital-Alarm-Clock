@@ -59,7 +59,39 @@ document.addEventListener("click", (e) => {
   }
 });
 
+//Alarm part of the code
+const alarmTimeInput = document.getElementById("alarmTime");
+const setAlarmButton = document.getElementById("setAlarm");
+const alarmMessage = document.getElementById("alarmMessage");
+const alarmSound = document.getElementById("alarmSound"); // Added this line
+let alarmInterval;
 
+setAlarmButton.addEventListener("click", () => {
+  const alarmTime = alarmTimeInput.value;
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const [alarmHours, alarmMinutes] = alarmTime.split(":");
 
+  if (hours == alarmHours && minutes == alarmMinutes) {
+    alarmMessage.innerText = "Time to wake up!";
+    alarmSound.play(); // Added this line
+    clearInterval(alarmInterval);
+  } else {
+    alarmMessage.innerText = "Alarm set for " + alarmTime;
+    alarmInterval = setInterval(checkAlarm, 1000);
+  }
+});
 
+function checkAlarm() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const [alarmHours, alarmMinutes] = alarmTimeInput.value.split(":");
 
+  if (hours == alarmHours && minutes == alarmMinutes) {
+    alarmMessage.innerText = "Time to wake up!";
+    alarmSound.play(); // Added this line
+    clearInterval(alarmInterval);
+  }
+}
