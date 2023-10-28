@@ -1,22 +1,22 @@
 let timeformatbtn = document.querySelector(".time-format-btn");
-let formatValue = "12"; 
+let formatValue = "12";
 
 timeformatbtn.addEventListener("click", () => {
   timeformatbtn.classList.toggle("active");
 
   if (formatValue === "12") {
     timeformatbtn.setAttribute("time-format-val", "24");
-    formatValue = "24"; 
+    formatValue = "24";
   } else {
     timeformatbtn.setAttribute("time-format-val", "12");
-    formatValue = "12"; 
+    formatValue = "12";
   }
 });
 
 let timetype = document.getElementById("timetype");
 let crnt_dt = document.getElementById("crnt_dt");
 
-setInterval(function updateClock(){
+setInterval(function updateClock() {
   let dt = new Date();
   crnt_dt.innerHTML = dt.toDateString();
 
@@ -48,7 +48,7 @@ let dotmenu = document.querySelector(".dot-menu");
 
 dotmenuBtn.addEventListener("click", (e) => {
   dotmenu.classList.toggle("active");
-  e.stopPropagation(); 
+  e.stopPropagation();
   //  clearInterval(intervalId);
 });
 
@@ -71,10 +71,15 @@ setAlarmButton.addEventListener("click", () => {
   const now = new Date();
   const hours = now.getHours();
   const minutes = now.getMinutes();
-  const [alarmHours, alarmMinutes] = alarmTime.split(":");
+  const seconds = now.getSeconds();
+  const [alarmHours, alarmMinutes, alarmSeconds] = alarmTime.split(":");
 
-  if (hours == alarmHours && minutes == alarmMinutes) {
-    alarmMessage.innerText = "Time to wake up!";
+  if (
+    hours == alarmHours &&
+    minutes == alarmMinutes &&
+    seconds == alarmSeconds
+  ) {
+    alarmMessage.innerText = "Rupali lover Want to tell You something!";
     alarmSound.play(); // Added this line
     clearInterval(alarmInterval);
   } else {
@@ -87,9 +92,14 @@ function checkAlarm() {
   const now = new Date();
   const hours = now.getHours();
   const minutes = now.getMinutes();
-  const [alarmHours, alarmMinutes] = alarmTimeInput.value.split(":");
+  const [alarmHours, alarmMinutes, alarmSeconds] =
+    alarmTimeInput.value.split(":");
 
-  if (hours == alarmHours && minutes == alarmMinutes) {
+  if (
+    hours == alarmHours &&
+    minutes == alarmMinutes &&
+    seconds == alarmSeconds
+  ) {
     alarmMessage.innerText = "Time to wake up!";
     alarmSound.play(); // Added this line
     clearInterval(alarmInterval);
