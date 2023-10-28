@@ -233,6 +233,7 @@ body {
 
 #alarmTime {
     margin: 10px 0;
+    width: 100%;
 }
 
 #setAlarm {
@@ -242,6 +243,7 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
+    width: 100%;
 }
 
 #setAlarm:hover {

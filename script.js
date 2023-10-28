@@ -49,13 +49,13 @@ let dotmenu = document.querySelector(".dot-menu");
 dotmenuBtn.addEventListener("click", (e) => {
   dotmenu.classList.toggle("active");
   e.stopPropagation(); 
-   clearInterval(intervalId);
+  //  clearInterval(intervalId);
 });
 
 document.addEventListener("click", (e) => {
   if (!dotmenu.contains(e.target) && !dotmenuBtn.contains(e.target)) {
     dotmenu.classList.remove("active");
-    intervalId = setInterval(updateClock, 1000); // Restart the clock update interval
+    // intervalId = setInterval(updateClock(), 1000); // Restart the clock update interval
   }
 });
 
