@@ -18,59 +18,74 @@
 </head>
 
 <body>
+    <div id="loading-container">
+        <div id="loading-symbol"></div>
+    </div>
 
-    <div class="box">
+    <div id="loader">
+        <!-- <div class="wrapper">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div> -->
+    </div>
 
-
-        <div class="dot-menu-btn" id="active-menu">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
-
-        <ul class="dot-menu">
-            <li class="menu-list">
-                <span class="clock-format-text">24-Hour Format</span>
-                <div class="time-format-btn"></div>
-            </li>
-            <li class="menu-item">
-                <div class="alarm">
-                    <input type="time" id="alarmTime" step="1" value="00:00:00">
-                    <button id="setAlarm">Set Alarm</button>
-                </div>
-                <div id="alarmMessage" class="alarm-message"></div>
-                <audio id="alarmSound">
-                    <source src="AeRupali.mp3" type="audio/mp3">
-                </audio>
-        </ul>
+    <div id="content" style="display: none;">
+        <!-- Your page content -->
+        <div class="box">
 
 
-
-        <div class="time">
-
-
-            <div id="hr" class="hr"></div>
-            <div class="dot" id="dot">:</div>
-            <div id="min" class="min"></div>
-
-
-            <div class="box2">
-                <span class="timetype" id="timetype"></span>
-                <div class="sec" id="sec"></div>
+            <div class="dot-menu-btn" id="active-menu">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
 
+            <ul class="dot-menu">
+                <li class="menu-list">
+                    <span class="clock-format-text">24-Hour Format</span>
+                    <div class="time-format-btn"></div>
+                </li>
+                <li class="menu-item">
+                    <div class="alarm">
+                        <input type="time" id="alarmTime" step="2" value="00:00:00">
+                        <button id="setAlarm">Set Alarm</button>
+                    </div>
+                    <div id="alarmMessage" class="alarm-message"></div>
+                    <audio id="alarmSound">
+                        <source src="AsurBgm.mp3" type="audio/mp3">
+                    </audio>
+            </ul>
+
+
+
+            <div class="time">
+
+
+                <div id="hr" class="hr"></div>
+                <div class="dot" id="dot">:</div>
+                <div id="min" class="min"></div>
+
+
+                <div class="box2">
+                    <span class="timetype" id="timetype"></span>
+                    <div class="sec" id="sec"></div>
+                </div>
+
+
+            </div>
+
+            <div class="crnt_dt" id="crnt_dt"></div>
+
 
         </div>
-
-        <div class="crnt_dt" id="crnt_dt"></div>
-
 
     </div>
 
 
-
-
-
-
     <script src="script.js"></script>
+
+
+
 </body>
 
 </html>

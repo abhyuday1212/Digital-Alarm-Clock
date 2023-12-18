@@ -1,3 +1,17 @@
+function loadPageWithDelay() {
+  const loader = document.getElementById("loader");
+  loader.style.display = "block";
+
+  setTimeout(function () {
+    loader.style.display = "none";
+    const content = document.getElementById("content");
+    content.style.display = "block";
+
+  }, 1200);
+}
+
+// digital clock
+
 let timeformatbtn = document.querySelector(".time-format-btn");
 let formatValue = "12";
 
@@ -49,13 +63,11 @@ let dotmenu = document.querySelector(".dot-menu");
 dotmenuBtn.addEventListener("click", (e) => {
   dotmenu.classList.toggle("active");
   e.stopPropagation();
-  //  clearInterval(intervalId);
 });
 
 document.addEventListener("click", (e) => {
   if (!dotmenu.contains(e.target) && !dotmenuBtn.contains(e.target)) {
     dotmenu.classList.remove("active");
-    // intervalId = setInterval(updateClock(), 1000); // Restart the clock update interval
   }
 });
 
@@ -63,7 +75,7 @@ document.addEventListener("click", (e) => {
 const alarmTimeInput = document.getElementById("alarmTime");
 const setAlarmButton = document.getElementById("setAlarm");
 const alarmMessage = document.getElementById("alarmMessage");
-const alarmSound = document.getElementById("alarmSound"); // Added this line
+const alarmSound = document.getElementById("alarmSound");
 let alarmInterval;
 
 setAlarmButton.addEventListener("click", () => {
@@ -80,7 +92,7 @@ setAlarmButton.addEventListener("click", () => {
     seconds == alarmSeconds
   ) {
     alarmMessage.innerText = "Rupali lover Want to tell You something!";
-    alarmSound.play(); // Added this line
+    alarmSound.play();
     clearInterval(alarmInterval);
   } else {
     alarmMessage.innerText = "Alarm set for " + alarmTime;
@@ -89,6 +101,8 @@ setAlarmButton.addEventListener("click", () => {
 });
 
 function checkAlarm() {
+  console.log("Checking if alarm is set or not");
+
   const now = new Date();
   const hours = now.getHours();
   const minutes = now.getMinutes();
@@ -101,8 +115,10 @@ function checkAlarm() {
     minutes == alarmMinutes &&
     seconds == alarmSeconds
   ) {
-    alarmMessage.innerText = "Time to wake up!";
-    alarmSound.play(); // Added this line
+    alarmMessage.innerText = "Wake Up Asur might come!";
+    alarmSound.play();
     clearInterval(alarmInterval);
   }
 }
+
+loadPageWithDelay();
